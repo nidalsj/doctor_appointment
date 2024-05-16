@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_header">
+        <div class="header">
+            <div class="text-center" style="border-bottom: 1px solid black;">
+                <div class="row">
+                    <div class="col-3 mb-4">
+                        <img src="/doctor_appointment/static/description/icon.png" alt="Module Icon"
+                    style="height: 60px; width: 60px;" />
+                    </div>
+
+                    <div class="col-9 text-right" style="text-align: right;">
+                        <p>123 Street, City, Country, <br />Email: email@gmail.com, <br /> Phone: 547657649</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="article o_report_layout_standard">
+            <t t-out="0"/>
+        </div>
+
+        <div class="footer 0_standard_footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                <h6>Page <span class="page"/></h6>
+            </div>
+        </div>
+    </template>
+
+</odoo>

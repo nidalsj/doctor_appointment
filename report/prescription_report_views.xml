@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- PDF REPORT ACTION -->
+    <record id="action_report_doctor_appointment" model="ir.actions.report">
+        <field name="name">Patient Report PDF</field>
+        <field name="model">patient.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <!-- report_name should be module_name.template_id -->
+        <field name="report_name">doctor_appointment.report_doctor_appointment</field>
+        <!-- report_file states actual file path of report template  -->
+        <field name="report_file">doctor_appointment.report_doctor_appointment</field>
+        <field name="binding_model_id" ref="model_patient_appointment" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- EXCEL REPORT ACTION -->
+    <record id="action_report_doctor_appointment_xls" model="ir.actions.report">
+        <field name="name">Patient Report Excel</field>
+        <field name="model">patient.appointment</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">doctor_appointment.report_doctor_appointment_xls</field>
+        <field name="report_file">doctor_appointment.report_doctor_appointment_xls</field>
+        <field name="binding_model_id" ref="model_patient_appointment" />
+        <field name="binding_type">report</field>
+    </record>
+
+
+</odoo>

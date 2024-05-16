@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_patient_appointment_root"
+        name="Patient Appointment"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_patient_operation"
+        name="Operations"
+        parent="menu_patient_appointment_root"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_patient_appointment"
+        name="Patient Appointment"
+        action="patient_appointment_action"
+        parent="menu_patient_operation"
+        sequence="10"/>
+
+    
+
+</odoo>

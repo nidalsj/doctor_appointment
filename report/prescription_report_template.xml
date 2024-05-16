@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_doctor_appointment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="appointment">
+                <t t-call="doctor_appointment.custom_header">
+                    <div class="page">
+                        <h3 style="text-align: right;"><strong>PRESCRIPTION</strong></h3> <br />
+                        <table class="table table-condensed">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Patient:</strong>
+                                    </td>
+                                    <td>
+                                        <t t-esc="appointment.patient_id.name" />
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <strong>Doctor:</strong>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <t t-esc="appointment.doctor_id.name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Appointment Date:</strong>
+                                    </td>
+                                    <td>
+                                        <t t-esc="appointment.appointment_date" />
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <strong>Appointment Type:</strong>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <t t-esc="appointment.appointment_type" />
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <br />
+
+                        <h2>Prescription Notes</h2>
+                        <br />
+                        <table class="table table-condensed" style="border-color: black;">
+                            <thead>
+                                <tr>
+                                    <th style="color: #eb3b93;">
+                                        <strong>MEDICINE</strong>
+                                    </th>
+                                    <th style="color: #eb3b93;">
+                                        <strong>DOSAGE</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="appointment.prescription_line_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="line.product_id.name" />
+                                        </td>
+                                        <td style="background-color: #e0dfdc;">
+                                            <t t-esc="line.dosage" />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

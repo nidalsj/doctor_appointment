@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="prescription_wizard_view_form" model="ir.ui.view">
+        <field name="name">prescription_wizard.view.form</field>
+        <field name="model">prescription.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add to Prescription">
+                <sheet>
+                    <group>
+                        <field name="product_id" />
+                        <field name="dosage" />
+                    </group>
+                    <footer>
+                        <button name="action_submit" string="Submit" class="oe_highlight" type="object" />
+                    </footer>
+                </sheet>                    
+            </form>
+        </field>
+    </record>
+</odoo>
