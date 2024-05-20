@@ -4,4 +4,3 @@ access_appointment_lines,appointment.lines,model_appointment_lines,base.group_us
 access_prescription_wizard,prescription.wizard,model_prescription_wizard,base.group_user,1,1,1,1
 access_prescription_lines,prescription.lines,model_prescription_lines,base.group_user,1,1,1,1
 
-

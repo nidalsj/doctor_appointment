@@ -8,6 +8,7 @@
     'depends': ['base', 'hr', 'stock', 'report_xlsx'], 
     'data':[
         'security/ir.model.access.csv',
+        'security/user_groups.xml',
         'views/doctor_view.xml',
         'views/menu.xml',
         'wizard/add_to_prescription.xml',

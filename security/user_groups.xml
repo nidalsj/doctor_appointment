@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- APPLICATION SELECTION IN GROUPS FORM -->
+    <record id="module_doctor_appointment" model="ir.module.category">
+        <field name="name">Doctor Appointment</field>
+        <field name="description">Doctor Appointment Category</field>
+    </record>
+
+    <!-- DEFINING USER GROUPS -->
+    <record id="om_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_doctor_appointment" />
+    </record>
+
+    <record id="om_group_auditor" model="res.groups">
+        <field name="name">Auditor</field>
+        <field name="category_id" ref="module_doctor_appointment" />
+    </record>
+
+    <record id="om_group_administrator" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="module_doctor_appointment" />
+    </record>
+
+    <!-- SETTING PERMISSIONS FOR EACH USER GROUPS -->
+    <record id="access_doctor_appointment_user" model="ir.model.access">
+        <field name="name">doctor.appointment_user_access</field>
+        <field name="model_id" ref="model_patient_appointment" />
+        <field name="group_id" ref="om_group_user" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="False" />
+    </record>
+
+    <record id="access_doctor_appointment_auditor" model="ir.model.access">
+        <field name="name">doctor.appointment_auditor_access</field>
+        <field name="model_id" ref="model_patient_appointment" />
+        <field name="group_id" ref="om_group_auditor" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="False" />
+        <field name="perm_create" eval="False" />
+        <field name="perm_unlink" eval="False" />
+    </record>
+
+    <record id="access_doctor_appointment_administrator" model="ir.model.access">
+        <field name="name">doctor.appointment_administrator_access</field>
+        <field name="model_id" ref="model_patient_appointment" />
+        <field name="group_id" ref="om_group_administrator" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="True" />
+    </record>
+
+</odoo>
