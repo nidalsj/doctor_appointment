@@ -7,51 +7,51 @@
         <field name="description">Doctor Appointment Category</field>
     </record>
 
-    <!-- DEFINING USER GROUPS -->
-    <record id="om_group_user" model="res.groups">
-        <field name="name">User</field>
-        <field name="category_id" ref="module_doctor_appointment" />
-    </record>
-
-    <record id="om_group_auditor" model="res.groups">
-        <field name="name">Auditor</field>
-        <field name="category_id" ref="module_doctor_appointment" />
-    </record>
-
     <record id="om_group_administrator" model="res.groups">
         <field name="name">Administrator</field>
         <field name="category_id" ref="module_doctor_appointment" />
     </record>
 
-    <!-- SETTING PERMISSIONS FOR EACH USER GROUPS -->
-    <record id="access_doctor_appointment_user" model="ir.model.access">
-        <field name="name">doctor.appointment_user_access</field>
-        <field name="model_id" ref="model_patient_appointment" />
-        <field name="group_id" ref="om_group_user" />
-        <field name="perm_read" eval="True" />
-        <field name="perm_write" eval="True" />
-        <field name="perm_create" eval="True" />
-        <field name="perm_unlink" eval="False" />
+    <record id="om_group_reception" model="res.groups">
+        <field name="name">Reception</field>
+        <field name="category_id" ref="module_doctor_appointment" />
     </record>
 
-    <record id="access_doctor_appointment_auditor" model="ir.model.access">
-        <field name="name">doctor.appointment_auditor_access</field>
-        <field name="model_id" ref="model_patient_appointment" />
-        <field name="group_id" ref="om_group_auditor" />
-        <field name="perm_read" eval="True" />
-        <field name="perm_write" eval="False" />
-        <field name="perm_create" eval="False" />
-        <field name="perm_unlink" eval="False" />
+    <record id="om_group_doctor" model="res.groups">
+        <field name="name">Doctor</field>
+        <field name="category_id" ref="module_doctor_appointment" />
     </record>
 
-    <record id="access_doctor_appointment_administrator" model="ir.model.access">
-        <field name="name">doctor.appointment_administrator_access</field>
-        <field name="model_id" ref="model_patient_appointment" />
-        <field name="group_id" ref="om_group_administrator" />
-        <field name="perm_read" eval="True" />
-        <field name="perm_write" eval="True" />
-        <field name="perm_create" eval="True" />
-        <field name="perm_unlink" eval="True" />
+    
+    <record id="patient_appointment_rule_doctor" model="ir.rule">
+        <field name="name">Patient Appointment Doctor Rule</field>
+        <field name="model_id" ref="model_patient_appointment"/>
+        <field name="groups" eval="[(4, ref('doctor_appointment.om_group_doctor'))]"/>
+        <field name="domain_force">[('doctor_id.user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+
+    <record id="patient_appointment_rule_administrator" model="ir.rule">
+        <field name="name">Patient Appointment Administrator Rule</field>
+        <field name="model_id" ref="model_patient_appointment"/>
+        <field name="groups" eval="[(4, ref('doctor_appointment.om_group_administrator'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+
+    <record id="patient_appointment_rule_reception" model="ir.rule">
+        <field name="name">Patient Appointment Reception Rule</field>
+        <field name="model_id" ref="model_patient_appointment"/>
+        <field name="groups" eval="[(4, ref('doctor_appointment.om_group_reception'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
     </record>
 
 </odoo>

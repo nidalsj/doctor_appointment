@@ -7,9 +7,6 @@
         <field name="model">patient.appointment</field>
         <field name="arch" type="xml">
             <form string="Patient Appointment">
-                <header>
-                    <button class="oe_stat_button" type="object" name="patient_report_sheet" string="Insert into Spreadsheet"></button>
-                </header>
                 <sheet>
                     <group>
                         <field name="patient_id" />
@@ -19,10 +16,11 @@
                     </group>
 
                     <!-- NOTEBOOK IS CREATED HERE -->
-                    <notebook>
+                    <notebook
+                        groups="doctor_appointment.om_group_doctor, doctor_appointment.om_group_administrator">
                         <page name="prescription" string="Observation">
                             <field name="prescription" placeholder="Enter your observations" />
-                            
+
                         </page>
                         <page name="treatments" string="Treatments">
                             <field name="pharmacy_line_ids">
@@ -30,28 +28,31 @@
                                     <field name="product_id" />
                                     <field name="unit_price" />
                                     <field name="qty" />
-                                    <field name="in_prescription" column_invisible = "1"/>
+                                    <field name="in_prescription" column_invisible="1" />
 
-                                    <button name="addto_prescription" string="Add to Prescription" 
-                                    type="object" class="oe_highlight" invisible='in_prescription' />
+                                    <button name="addto_prescription" string="Add to Prescription"
+                                        type="object" class="oe_highlight"
+                                        invisible='in_prescription' />
 
-                                    <button name="removefrom_prescription" string="Remove From Prescription" 
-                                    type="object" class="btn-danger oe_highlight" invisible='not in_prescription' />
+                                    <button name="removefrom_prescription"
+                                        string="Remove From Prescription"
+                                        type="object" class="btn-danger oe_highlight"
+                                        invisible='not in_prescription' />
 
                                     <field name="total_price" />
                                 </tree>
                             </field>
-                            <group>                               
-                                <field name="grand_total" readonly="1" />                                                              
-                            </group>                                                       
+                            <group>
+                                <field name="grand_total" readonly="1" />
+                            </group>
                         </page>
                         <page name="prescription" string="Prescription">
                             <field name="prescription_line_ids">
                                 <tree>
                                     <field name="product_id" />
                                     <field name="dosage" />
-                                </tree>                                
-                            </field>                            
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
@@ -81,5 +82,5 @@
         <field name="res_model">patient.appointment</field>
         <field name="view_mode">tree,form</field>
     </record>
-    
+
 </odoo>

@@ -24,11 +24,6 @@ class PatientAppointment(models.Model):
         for appointment in self:
             appointment.grand_total = sum(appointment.pharmacy_line_ids.mapped('total_price'))
     
-
-    # EXCEL SHEET OBJECT BUTTON FUNCTION
-    def patient_report_sheet(self):
-        pass
-
     
 # TABLE FOR TREATMENTS PAGE - INVENTORY MODULE - UNIT PRICE - GRAND TOTAL
 class AppointmentLines(models.Model):
@@ -81,5 +76,4 @@ class PrescriptionLines(models.Model):
     appointment_id = fields.Many2one('patient.appointment', string="Appointment")
     treatment_id = fields.Many2one('appointment.lines', string="Treatment")
     dosage = fields.Char(string="Dosage")
-    
        
