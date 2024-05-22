@@ -10,6 +10,7 @@
     <record id="om_group_administrator" model="res.groups">
         <field name="name">Administrator</field>
         <field name="category_id" ref="module_doctor_appointment" />
+        <field name="implied_ids" eval="[(4, ref('doctor_appointment.om_group_doctor'))]"/>
     </record>
 
     <record id="om_group_reception" model="res.groups">

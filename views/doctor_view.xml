@@ -17,7 +17,7 @@
 
                     <!-- NOTEBOOK IS CREATED HERE -->
                     <notebook
-                        groups="doctor_appointment.om_group_doctor, doctor_appointment.om_group_administrator">
+                        groups="doctor_appointment.om_group_doctor">
                         <page name="prescription" string="Observation">
                             <field name="prescription" placeholder="Enter your observations" />
 
